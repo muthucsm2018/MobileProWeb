@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EMRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="security_Pages">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="int" Nullable="false" />
+          <Property Name="PageParentID" Type="int" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="80" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="PageURL" Type="nvarchar" MaxLength="256" />
+          <Property Name="PageOrdinal" Type="int" />
+          <Property Name="IsMenu" Type="smallint" />
+        </EntityType>
+        <EntityType Name="security_RolePages">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PageID" Type="int" Nullable="false" />
+          <Property Name="IsHomePage" Type="smallint" />
+        </EntityType>
+        <EntityType Name="security_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="security_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_department">
+          <Key>
+            <PropertyRef Name="dep_id" />
+          </Key>
+          <Property Name="dep_id" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="dep_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_inpatient">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="dep_id" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="patient_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="reg_date" Type="datetime" />
+          <Property Name="patient_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="birth_date" Type="datetime" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="fatherorhusbandname" Type="nvarchar" MaxLength="100" />
+          <Property Name="addr1" Type="nvarchar" MaxLength="500" />
+          <Property Name="addr2" Type="nvarchar" MaxLength="500" />
+          <Property Name="addr3" Type="nvarchar" MaxLength="500" />
+          <Property Name="phoneno" Type="nvarchar" MaxLength="50" />
+          <Property Name="pic_filename" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_patient_service">
+          <Key>
+            <PropertyRef Name="patient_id" />
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="patient_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_register">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="dep_id" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="patient_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="reg_date" Type="datetime" />
+          <Property Name="patient_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="birth_date" Type="datetime" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="fatherorhusbandname" Type="nvarchar" MaxLength="100" />
+          <Property Name="addr1" Type="nvarchar" MaxLength="500" />
+          <Property Name="addr2" Type="nvarchar" MaxLength="500" />
+          <Property Name="addr3" Type="nvarchar" MaxLength="500" />
+          <Property Name="phoneno" Type="nvarchar" MaxLength="50" />
+          <Property Name="pic_filename" Type="varchar" MaxLength="50" />
+          <Property Name="invoice_no" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_service_fee">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dep_id" Type="char" MaxLength="10" />
+          <Property Name="service_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="service_fee" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EMR.dbo.webpages_Membership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PasswordFailuresSinceLastSuccess" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="PasswordSalt" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <Function Name="sp_frm_Security_get_UserHomePage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_frm_Security_TreeViewMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="Menu" Type="varchar" Mode="In" />
+          <Parameter Name="ParentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_frmAddUpdPatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="PageName" Type="varchar" Mode="In" />
+          <Parameter Name="PatientType" Type="char" Mode="In" />
+          <Parameter Name="dep_id" Type="char" Mode="In" />
+          <Parameter Name="patient_id" Type="nvarchar" Mode="In" />
+          <Parameter Name="reg_date" Type="datetime" Mode="In" />
+          <Parameter Name="patient_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="birth_date" Type="datetime" Mode="In" />
+          <Parameter Name="gender" Type="varchar" Mode="In" />
+          <Parameter Name="fatherorhusbandname" Type="nvarchar" Mode="In" />
+          <Parameter Name="addr1" Type="nvarchar" Mode="In" />
+          <Parameter Name="addr2" Type="nvarchar" Mode="In" />
+          <Parameter Name="addr3" Type="nvarchar" Mode="In" />
+          <Parameter Name="phoneno" Type="nvarchar" Mode="In" />
+          <Parameter Name="pic_filename" Type="varchar" Mode="In" />
+          <Parameter Name="invoice_no" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_frmGet_BillsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="PageName" Type="varchar" Mode="In" />
+          <Parameter Name="PatientId" Type="nvarchar" Mode="In" />
+          <Parameter Name="PatientName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_frmGetDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_frmGetPatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="PageName" Type="varchar" Mode="In" />
+          <Parameter Name="RegDateStart" Type="datetime" Mode="In" />
+          <Parameter Name="RegDateEnd" Type="datetime" Mode="In" />
+          <Parameter Name="DepartmentId" Type="char" Mode="In" />
+          <Parameter Name="PatientId" Type="varchar" Mode="In" />
+          <Parameter Name="ParmType" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_frmGetPatient_Biller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="PageName" Type="varchar" Mode="In" />
+          <Parameter Name="RegDateStart" Type="datetime" Mode="In" />
+          <Parameter Name="RegDateEnd" Type="datetime" Mode="In" />
+          <Parameter Name="DepartmentId" Type="char" Mode="In" />
+          <Parameter Name="PatientId" Type="varchar" Mode="In" />
+          <Parameter Name="ParmType" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_frmGetPatient_Bills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="PageName" Type="varchar" Mode="In" />
+          <Parameter Name="PatientId" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="EMRModelStoreContainer">
+          <EntitySet Name="security_Pages" EntityType="Self.security_Pages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="security_RolePages" EntityType="Self.security_RolePages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="security_Roles" EntityType="Self.security_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="security_UsersInRoles" EntityType="Self.security_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_department" EntityType="Self.tbl_department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_inpatient" EntityType="Self.tbl_inpatient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_patient_service" EntityType="Self.tbl_patient_service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_register" EntityType="Self.tbl_register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_service_fee" EntityType="Self.tbl_service_fee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[webpages_Membership].[UserId] AS [UserId], 
+[webpages_Membership].[CreateDate] AS [CreateDate], 
+[webpages_Membership].[ConfirmationToken] AS [ConfirmationToken], 
+[webpages_Membership].[IsConfirmed] AS [IsConfirmed], 
+[webpages_Membership].[LastPasswordFailureDate] AS [LastPasswordFailureDate], 
+[webpages_Membership].[PasswordFailuresSinceLastSuccess] AS [PasswordFailuresSinceLastSuccess], 
+[webpages_Membership].[Password] AS [Password], 
+[webpages_Membership].[PasswordChangedDate] AS [PasswordChangedDate], 
+[webpages_Membership].[PasswordSalt] AS [PasswordSalt], 
+[webpages_Membership].[PasswordVerificationToken] AS [PasswordVerificationToken], 
+[webpages_Membership].[PasswordVerificationTokenExpirationDate] AS [PasswordVerificationTokenExpirationDate]
+FROM [dbo].[webpages_Membership] AS [webpages_Membership]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EMRModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EMREntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="security_Pages" EntityType="EMRModel.security_Pages" />
+          <EntitySet Name="security_RolePages" EntityType="EMRModel.security_RolePages" />
+          <EntitySet Name="security_Roles" EntityType="EMRModel.security_Roles" />
+          <EntitySet Name="security_UsersInRoles" EntityType="EMRModel.security_UsersInRoles" />
+          <EntitySet Name="tbl_department" EntityType="EMRModel.tbl_department" />
+          <EntitySet Name="webpages_Membership" EntityType="EMRModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="EMRModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="EMRModel.webpages_Roles" />
+          <FunctionImport Name="sp_frm_Security_TreeViewMenu" ReturnType="Collection(EMRModel.sp_frm_Security_TreeViewMenu_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="Menu" Mode="In" Type="String" />
+            <Parameter Name="ParentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_frmGetDepartment" ReturnType="Collection(EMRModel.sp_frmGetDepartment_Result)" />
+          <EntitySet Name="tbl_service_fee" EntityType="EMRModel.tbl_service_fee" />
+          <FunctionImport Name="sp_frmGet_BillsList" ReturnType="Collection(EMRModel.sp_frmGet_BillsList_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="PatientId" Mode="In" Type="String" />
+            <Parameter Name="PatientName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_frmGetPatient_Bills" ReturnType="Collection(EMRModel.sp_frmGetPatient_Bills_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="PatientId" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbl_inpatient" EntityType="EMRModel.tbl_inpatient" />
+          <EntitySet Name="tbl_patient_service" EntityType="EMRModel.tbl_patient_service" />
+          <FunctionImport Name="sp_frm_Security_get_UserHomePage" ReturnType="Collection(String)">
+          <Parameter Name="UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_frmGetPatient_Biller" ReturnType="Collection(EMRModel.sp_frmGetPatient_Biller_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="RegDateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="RegDateEnd" Mode="In" Type="DateTime" />
+            <Parameter Name="DepartmentId" Mode="In" Type="String" />
+            <Parameter Name="PatientId" Mode="In" Type="String" />
+            <Parameter Name="ParmType" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_register" EntityType="EMRModel.tbl_register" />
+          <FunctionImport Name="sp_frmAddUpdPatient">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="PatientType" Mode="In" Type="String" />
+            <Parameter Name="dep_id" Mode="In" Type="String" />
+            <Parameter Name="patient_id" Mode="In" Type="String" />
+            <Parameter Name="reg_date" Mode="In" Type="DateTime" />
+            <Parameter Name="patient_name" Mode="In" Type="String" />
+            <Parameter Name="birth_date" Mode="In" Type="DateTime" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="fatherorhusbandname" Mode="In" Type="String" />
+            <Parameter Name="addr1" Mode="In" Type="String" />
+            <Parameter Name="addr2" Mode="In" Type="String" />
+            <Parameter Name="addr3" Mode="In" Type="String" />
+            <Parameter Name="phoneno" Mode="In" Type="String" />
+            <Parameter Name="pic_filename" Mode="In" Type="String" />
+            <Parameter Name="invoice_no" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_frmGetPatient" ReturnType="Collection(EMRModel.sp_frmGetPatient_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="PageName" Mode="In" Type="String" />
+            <Parameter Name="RegDateStart" Mode="In" Type="DateTime" />
+            <Parameter Name="RegDateEnd" Mode="In" Type="DateTime" />
+            <Parameter Name="DepartmentId" Mode="In" Type="String" />
+            <Parameter Name="PatientId" Mode="In" Type="String" />
+            <Parameter Name="ParmType" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="security_Pages">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="Int32" Nullable="false" />
+          <Property Name="PageParentID" Type="Int32" />
+          <Property Name="PageName" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PageURL" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PageOrdinal" Type="Int32" />
+          <Property Name="IsMenu" Type="Int16" />
+        </EntityType>
+        <EntityType Name="security_RolePages">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="PageID" Type="Int32" Nullable="false" />
+          <Property Name="IsHomePage" Type="Int16" />
+        </EntityType>
+        <EntityType Name="security_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="security_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_department">
+          <Key>
+            <PropertyRef Name="dep_id" />
+          </Key>
+          <Property Name="dep_id" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="dep_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PasswordFailuresSinceLastSuccess" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="PasswordSalt" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="sp_frm_Security_TreeViewMenu_Result">
+          <Property Type="Int32" Name="PageID" Nullable="false" />
+          <Property Type="String" Name="PageTitle" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="PageURL" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="ChildNodeCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_frmGetDepartment_Result">
+          <Property Type="String" Name="dep_id" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="dep_name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tbl_service_fee">
+          <Key>
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="service_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dep_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="service_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="service_fee" Type="Double" />
+        </EntityType>
+        <ComplexType Name="sp_frmGet_BillsList_Result">
+          <Property Type="String" Name="dep_id" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="dep_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="patient_id" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="reg_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="patient_name" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="birth_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="gender" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_frmGetPatient_Bills_Result">
+          <Property Type="String" Name="patient_id" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="dep_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="service_name" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="service_fee" Nullable="true" />
+          <Property Type="Int32" Name="service_id" Nullable="false" />
+          <Property Type="String" Name="dep_id" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tbl_inpatient">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="dep_id" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="patient_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reg_date" Type="DateTime" Precision="3" />
+          <Property Name="patient_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="birth_date" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fatherorhusbandname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="addr1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="addr2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="addr3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pic_filename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_patient_service">
+          <Key>
+            <PropertyRef Name="patient_id" />
+            <PropertyRef Name="service_id" />
+          </Key>
+          <Property Name="patient_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="service_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="sp_frmGetPatient_Biller_Result">
+          <Property Type="String" Name="dep_id" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="dep_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="patient_id" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="reg_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="patient_name" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="birth_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="gender" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="fatherorhusbandname" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="addr1" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="addr2" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="addr3" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="phoneno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="pic_filename" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tbl_register">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="dep_id" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="patient_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reg_date" Type="DateTime" Precision="3" />
+          <Property Name="patient_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="birth_date" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fatherorhusbandname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="addr1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="addr2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="addr3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="phoneno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pic_filename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="invoice_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="sp_frmGetPatient_Result">
+          <Property Type="String" Name="dep_id" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="dep_name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="patient_id" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="reg_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="patient_name" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="birth_date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="gender" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="fatherorhusbandname" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="addr1" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="addr2" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="addr3" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="phoneno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="pic_filename" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="invoice_no" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EMRModelStoreContainer" CdmEntityContainer="EMREntities">
+          <EntitySetMapping Name="security_Pages">
+            <EntityTypeMapping TypeName="EMRModel.security_Pages">
+              <MappingFragment StoreEntitySet="security_Pages">
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PageParentID" ColumnName="PageParentID" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+                <ScalarProperty Name="PageOrdinal" ColumnName="PageOrdinal" />
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="security_RolePages">
+            <EntityTypeMapping TypeName="EMRModel.security_RolePages">
+              <MappingFragment StoreEntitySet="security_RolePages">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="IsHomePage" ColumnName="IsHomePage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="security_Roles">
+            <EntityTypeMapping TypeName="EMRModel.security_Roles">
+              <MappingFragment StoreEntitySet="security_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="security_UsersInRoles">
+            <EntityTypeMapping TypeName="EMRModel.security_UsersInRoles">
+              <MappingFragment StoreEntitySet="security_UsersInRoles">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_department">
+            <EntityTypeMapping TypeName="EMRModel.tbl_department">
+              <MappingFragment StoreEntitySet="tbl_department">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="EMRModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="EMRModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="EMRModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_frm_Security_TreeViewMenu" FunctionName="EMRModel.Store.sp_frm_Security_TreeViewMenu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EMRModel.sp_frm_Security_TreeViewMenu_Result">
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+                <ScalarProperty Name="ChildNodeCount" ColumnName="ChildNodeCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_frmGetDepartment" FunctionName="EMRModel.Store.sp_frmGetDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EMRModel.sp_frmGetDepartment_Result">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_service_fee">
+            <EntityTypeMapping TypeName="EMRModel.tbl_service_fee">
+              <MappingFragment StoreEntitySet="tbl_service_fee">
+                <ScalarProperty Name="service_fee" ColumnName="service_fee" />
+                <ScalarProperty Name="service_name" ColumnName="service_name" />
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_frmGet_BillsList" FunctionName="EMRModel.Store.sp_frmGet_BillsList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EMRModel.sp_frmGet_BillsList_Result">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_frmGetPatient_Bills" FunctionName="EMRModel.Store.sp_frmGetPatient_Bills">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EMRModel.sp_frmGetPatient_Bills_Result">
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="service_name" ColumnName="service_name" />
+                <ScalarProperty Name="service_fee" ColumnName="service_fee" />
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_inpatient">
+            <EntityTypeMapping TypeName="EMRModel.tbl_inpatient">
+              <MappingFragment StoreEntitySet="tbl_inpatient">
+                <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="addr3" ColumnName="addr3" />
+                <ScalarProperty Name="addr2" ColumnName="addr2" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="fatherorhusbandname" ColumnName="fatherorhusbandname" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_patient_service">
+            <EntityTypeMapping TypeName="EMRModel.tbl_patient_service">
+              <MappingFragment StoreEntitySet="tbl_patient_service">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_frm_Security_get_UserHomePage" FunctionName="EMRModel.Store.sp_frm_Security_get_UserHomePage" />
+          <FunctionImportMapping FunctionImportName="sp_frmGetPatient_Biller" FunctionName="EMRModel.Store.sp_frmGetPatient_Biller">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EMRModel.sp_frmGetPatient_Biller_Result">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="fatherorhusbandname" ColumnName="fatherorhusbandname" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="addr2" ColumnName="addr2" />
+                <ScalarProperty Name="addr3" ColumnName="addr3" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_register">
+            <EntityTypeMapping TypeName="EMRModel.tbl_register">
+              <MappingFragment StoreEntitySet="tbl_register">
+                <ScalarProperty Name="invoice_no" ColumnName="invoice_no" />
+                <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="addr3" ColumnName="addr3" />
+                <ScalarProperty Name="addr2" ColumnName="addr2" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="fatherorhusbandname" ColumnName="fatherorhusbandname" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_frmAddUpdPatient" FunctionName="EMRModel.Store.sp_frmAddUpdPatient" />
+          <FunctionImportMapping FunctionImportName="sp_frmGetPatient" FunctionName="EMRModel.Store.sp_frmGetPatient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EMRModel.sp_frmGetPatient_Result">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="patient_name" ColumnName="patient_name" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="fatherorhusbandname" ColumnName="fatherorhusbandname" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="addr2" ColumnName="addr2" />
+                <ScalarProperty Name="addr3" ColumnName="addr3" />
+                <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+                <ScalarProperty Name="pic_filename" ColumnName="pic_filename" />
+                <ScalarProperty Name="invoice_no" ColumnName="invoice_no" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

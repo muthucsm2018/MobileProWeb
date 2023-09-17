@@ -1,0 +1,516 @@
+﻿@model MobilePro.Models.BillsListModel
+@using MobilePro.Models
+@{
+    ViewBag.Title = "Service Bills List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Service Bills List</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box box-default">
+            <p>Note: Displaying Two Week Records, Please Search for specific Service Bill</p>
+            <div class="box-body">
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Bill Number </label>
+                            <div>
+                                <input type="text" name="ReceiptNo" tabindex="1" placeholder="(Only Numeric)" class="form-control" id="ReceiptNo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Customer Name OR Phone Number</label>
+                            <div>
+                                <input type="text" name="CustomerName" tabindex="2" placeholder="Enter customer name" class="form-control" id="CustomerName">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Service Date</label>
+                            <div>
+                                <input type="text" name="ServiceDate" tabindex="3" class="form-control" id="ServiceDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" style="display:none">
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <div>
+                                @Html.DropDownList("BrandCode",
+                                        new SelectList(ViewBag.BrandList as System.Collections.IEnumerable, "Value", "Text", Shared.ToString(Model.BrandCode)),
+                                        new { @class = "form-control", @tabindex = 4 })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Status</label>
+                            <div>
+                                @Html.DropDownList("StatusCode",
+                                                new SelectList(ViewBag.StatusList as System.Collections.IEnumerable, "Value", "Text"), "-- All --",
+                                                         new { @class = "form-control", @tabindex = 5 })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="btn-adj">
+                            <button type="button" tabindex="6" id="btnsearch" onclick="GetInfo();" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div> <!--/.box-->
+        @Html.Hidden("ParmType")
+        @Html.Hidden("ServiceID")
+        <div class="box box-default">
+
+            <div class="box-body">
+                <div class=" box-body table-responsive no-padding">
+
+                    <table id="myTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Bill</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Contact</th>
+                                <th>Model</th>
+                                <th>Fault</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div> <!--/.box-body-->
+        </div> <!--/.box-->
+    </section> <!-- /.content-->
+
+</div><!-- /.content-wrapper -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="ReceiptNoPopup"></h4>
+                <input type="hidden" id="receiptnomodal" name="receiptnomodal" />
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6s">
+                            <label class="control-label">Update status</label>
+                           @Html.DropDownList("StatusCodePopup",
+                                                new SelectList(ViewBag.StatusListModel as System.Collections.IEnumerable, "Value", "Text"), "-- All --",
+                                                         new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnsavepending" onclick="SaveStatus();" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Bill Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Receipt Number</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ReceiptNoModal" />
+                        </div>
+
+                        <div class="col-md-8">
+                            <label class="control-label">Service Date</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ServiceDate" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Customer Name</label>
+                            <input type="text" class="form-control" disabled="disabled" id="CustomerName" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">Contact No</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ContactNo" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">Brand Name</label>
+                            <input type="text" class="form-control" disabled="disabled" id="BrandName" />
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label class="control-label">Model No</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ModelDesc" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label">Status Name</label>
+                            <input type="text" class="form-control" disabled="disabled" id="StatusName" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label">Net Amount</label>
+                            <input type="text" class="form-control" disabled="disabled" id="NetAmount" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">IMEI No</label>
+                            <input type="text" class="form-control" disabled="disabled" id="IMEINo" />
+                        </div>
+
+                        <div class="col-md-8">
+                            <label class="control-label">Nature Fault</label>
+                            <input type="text" class="form-control" disabled="disabled" id="NatureFault" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        
+
+                        <div class="col-md-4">
+                            <label class="control-label">Password Type</label>
+                            <input type="text" class="form-control" disabled="disabled" id="PasswordType" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">Password</label>
+                            <input type="text" class="form-control" disabled="disabled" id="Password" />
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Technician Remark</label>
+                            <input type="text" class="form-control" disabled="disabled" id="TechRemark" />
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- page script -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        $('#ServiceDate').datepicker({
+            format: 'dd/mm/yyyy',
+            todayHighlight: true
+        });
+
+        var tabindex = 1;
+        $('[tabindex=' + tabindex + ']').focus();
+
+        $("#StatusCodePopup").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnsavepending").click();
+            }
+        });
+
+        $('#ReceiptNo').on('keydown', function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        $("input").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnsearch").click();
+            }
+        });
+
+        $("select").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnsearch").click();
+            }
+        });
+
+        $.fn.dataTable.ext.errMode = 'throw';
+
+        $('#myTable').dataTable({
+
+            dom: 'lBfrtip',
+            responsive: !0,
+            buttons: [
+                {
+                    text: '<i class="fa fa-file-excel-o"></i>' + '&nbsp;' + 'Export Excel',
+                    className: 'btn btn-primary',
+                    extend: 'excel',
+                    title: 'Bills List',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                    }
+                },
+                {
+                    text: '<i class="fa fa-file-pdf-o"></i>' + '&nbsp;' + 'Export Pdf',
+                    className: 'btn btn-primary',
+                    extend: 'pdf',
+                    title: 'Bills List',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                    },
+                    //extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }
+            ],
+            "deferRender": true,
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "iDisplayLength": @System.Configuration.ConfigurationManager.AppSettings["WebGridPageSize"],
+            "sAjaxSource": "@Url.Action("QueryBillList", "Billing")",
+            "fnServerParams": function (aoData) {
+                aoData.push(
+                { "name": "ReceiptNo", "value": $('#ReceiptNo').val() },
+                { "name": "CustomerName", "value": $('#CustomerName').val() },
+                { "name": "ServiceDate", "value": $('#ServiceDate').val() },
+                { "name": "BrandCode", "value": $('#BrandCode').val() },
+                { "name": "ModelNo", "value": $('#ModelNo').val() },
+                { "name": "StatusCode", "value": $('#StatusCode').val() },
+                { "name": "ParmType", "value": $('#ParmType').val() });
+            },
+            "bProcessing": true,
+            "aoColumns": [
+
+                //{ "sWidth": "75px",
+                //    "render": function (o) {
+                //        return "<a class='btn btn-primary btn-xs' href='../Billing/EditBill?ServiceID=" + o + "'>Edit</a>"
+                //            + " | " + "<button type='button' id='btnview' onclick='ViewClick(" + '"' + o + '"' + ");' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#myModal'>View</button>";
+
+
+                //    }
+                //},
+                { "sWidth": "75px",
+                    "render": function (data, type, row) {
+                        if (row[7] == 'New' || row[7] == 'Ready') {
+                            return "<a class='btn btn-primary btn-xs' href='../Billing/EditBill?ServiceID=" + row[0] + "'>Edit</a>"
+                                + " | " + "<button type='button' id='btnview' onclick='ViewClick(" + '"' + row[0] + '"' + ");' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#myModal'>View</button>";
+                        }
+                        else {
+                            return  "<button type='button' id='btnview' onclick='ViewClick(" + '"' + row[0] + '"' + ");' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#myModal'>View</button>";
+                        }
+
+                    }
+                },
+                { "sWidth": "30px" },
+                { "sWidth": "125px" },
+                { "sWidth": "75px" },
+                { "sWidth": "50px" },                
+                { "sWidth": "50px" },
+                { "sWidth": "100px" },                
+                {
+                    "sWidth": "75px",
+                    "render": function (data, type, row) {
+                        if (data == 'New')
+                            return "<button type='button' id='btnpending' onclick='return PendingClick(" + '"' + row[9] + '"' + ");' class='btn btn-danger btn-xs' data-toggle='modal' data-target='#myModal1'>" + data + "</button>";                                
+                        
+                        if (data == 'Ready')
+                            return  "<button type='button' id='btnpending' onclick='return PendingClick(" + '"' + row[9] + '"' + ");' class='btn btn-success btn-xs' data-toggle='modal' data-target='#myModal1'>" + data + "</button>";
+
+                        if (data == 'Delivered') 
+                            return "<button type='button' class='btn btn-primary btn-xs' >" + data + "</button>";
+
+                        if (data == 'Return') 
+                            return  "<button type='button' class='btn btn-warning btn-xs' >" + data + "</button>";
+                       
+                    }
+                },
+                { "sWidth": "50px" },                
+                { "sWidth": "50px",
+                    "render": function (o) {
+                        return "<button type='button' id='btnreceipt' onclick='ReceiptClick(" + '"' + o + '"' + ");' class='btn btn-primary btn-xs'>Receipt</button>";
+                    }
+                }
+               
+            ],
+            "footerCallback": function (row, data, start, end, display) {
+                var api = this.api(), data;
+                console.log(1);
+                // Remove the formatting to get integer data for summation
+                var intVal = function (i) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+
+                // Total over all pages
+                total1 = api
+                    .column(8)
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                console.log(total1);
+                // Update footer
+                $(api.column(8).footer()).html(
+                    'S$ ' + total1.toFixed(2)
+                );
+
+            }
+        });
+
+        
+    });
+
+    function ReceiptClick(billid) {
+        var url = '@Url.Content("~/Billing/Invoice")' + '?BillId=' + billid;
+        window.open(url, window,'dialogHeight:1750px;dialogWidth:1400px;edge:Raised;center:Yes;help:No;resizable:No;status:No;scroll:Yes;');
+    }
+    
+    function ViewClick(trxnid) {
+
+        $.ajax({
+            url: '@Url.Content("~/Billing/GetBillDetails")',
+            type: 'POST',
+            data: JSON.stringify({ ServiceID: trxnid }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success === true) {
+                    var model = result.response;
+                    $('#myModal').find('#ReceiptNoModal').val(model.ReceiptNo);
+                    $('#myModal').find('#ServiceDate').val(model.ServiceDate);
+                    $('#myModal').find('#CustomerName').val(model.CustomerName);
+                    $('#myModal').find('#ContactNo').val(model.ContactNo);                   
+                    $('#myModal').find('#BrandName').val(model.BrandName);
+                    $('#myModal').find('#ModelDesc').val(model.ModelNo);
+                    $('#myModal').find('#ColorName').val(model.ColorName);
+                    
+                    $('#myModal').find('#IMEINo').val(model.IMEINo);
+                    $('#myModal').find('#NatureFault').val(model.NatureFault);
+                    $('#myModal').find('#StatusName').val(model.StatusName);
+                    $('#myModal').find('#PasswordType').val(model.PasswordType);
+                    $('#myModal').find('#Password').val(model.Password);
+                    
+                    $('#myModal').find('#NetAmount').val(model.NetAmount);
+                    $('#myModal').find('#TechRemark').val(model.TechRemark);
+
+                }
+                if (result.success === false) {
+
+                }
+            }
+        });
+    }
+
+    function GetInfo() {
+        $('#ParmType').val('2');
+        $('#myTable').DataTable().ajax.reload();
+    }
+
+    function PendingClick(trxnid) {
+        $('#myModal1').find('#ReceiptNoPopup').html('Receipt No: ' + trxnid);
+        $('#myModal1').find('#receiptnomodal').val(trxnid);
+        $('#myModal1').find('#StatusCodePopup').focus();
+    }
+
+    function SaveStatus() {
+
+        var receiptno = $('#receiptnomodal').val();
+        var status =  $('#StatusCodePopup').val();
+
+        $.ajax({
+            url: '@Url.Content("~/Billing/UpdateBillStatus")',
+            type: 'POST',
+            data: JSON.stringify({ ReceiptNo: receiptno, Status: status  }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success === true) {
+                    $('#myTable').DataTable().ajax.reload();
+                    $('#myModal1').modal('hide');
+                }
+                if (result.success === false) {
+                    $('#myModal1').modal('show');
+                }
+            }
+        });
+    }
+
+</script>
+
+
+

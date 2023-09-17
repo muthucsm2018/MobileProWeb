@@ -1,0 +1,462 @@
+﻿@{
+    ViewBag.Title = "Service Bills List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Service Bills Report
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Service Bills Report</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box box-default">
+            <div class="col-sm-12 callout callout-info">
+                <p id="div_success">@Html.Raw(ViewBag.Message)</p>
+            </div>
+            <div class="box-body">
+                <h4 class="box-header">Search</h4>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>From To Date</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-left" tabindex="1" id="reservation" name="reservation">
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+                    </div>
+
+
+                    <div class="col-md-2" style="display:none">
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <div>
+                                @Html.DropDownList("BrandCode",
+                                    new SelectList(ViewBag.BrandList as System.Collections.IEnumerable, "Value", "Text"),
+                                    new { @class = "form-control", @tabindex = "3" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Status</label>
+                            <div>
+                                @Html.DropDownList("StatusCode",
+                                         new SelectList(ViewBag.StatusList as System.Collections.IEnumerable, "Value", "Text"), "-- All --",
+                                         new { @class = "form-control", @tabindex = "5" })
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (WebSecurity.CurrentUserId == 1)
+                    {
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Ready By</label>
+                                <div>
+                                    @Html.DropDownList("CreatedBy",
+                                                 new SelectList(ViewBag.CreatedByList as System.Collections.IEnumerable, "Value", "Text"), "-- All --",
+                                                          new { @class = "form-control", @tabindex = "7" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-sm-2">
+                        <div class="btn-adj">
+                            <button type="button" tabindex="8" id="btnsearch" onclick="GetInfo();" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div> <!--/.box-->
+        <div class="box box-default">
+
+            <div class="box-body">
+                <div class=" box-body table-responsive no-padding">
+
+                    <table id="myTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>No</th>
+                                <th>Service Date</th>
+                                <th>Customer</th>
+                                <th>Phone</th>
+                                <th>Brand</th>
+                                <th>Model No</th>
+                                <th>Nature Fault</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div> <!--/.box-body-->
+        </div> <!--/.box-->
+    </section> <!-- /.content-->
+
+</div><!-- /.content-wrapper -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Bill Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Receipt Number</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ReceiptNoModal" />
+                        </div>
+
+                        <div class="col-md-8">
+                            <label class="control-label">Service Date</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ServiceDate" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Customer Name</label>
+                            <input type="text" class="form-control" disabled="disabled" id="CustomerName" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">Contact No</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ContactNo" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">Brand Name</label>
+                            <input type="text" class="form-control" disabled="disabled" id="BrandName" />
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label class="control-label">Model No</label>
+                            <input type="text" class="form-control" disabled="disabled" id="ModelDesc" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label">Status Name</label>
+                            <input type="text" class="form-control" disabled="disabled" id="StatusName" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label">Net Amount</label>
+                            <input type="text" class="form-control" disabled="disabled" id="NetAmount" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">IMEI No</label>
+                            <input type="text" class="form-control" disabled="disabled" id="IMEINo" />
+                        </div>
+
+                        <div class="col-md-8">
+                            <label class="control-label">Nature Fault</label>
+                            <input type="text" class="form-control" disabled="disabled" id="NatureFault" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+
+
+                        <div class="col-md-4">
+                            <label class="control-label">Password Type</label>
+                            <input type="text" class="form-control" disabled="disabled" id="PasswordType" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">Password</label>
+                            <input type="text" class="form-control" disabled="disabled" id="Password" />
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Technician Remark</label>
+                            <input type="text" class="form-control" disabled="disabled" id="TechRemark" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page script -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        $('input[name="reservation"]').daterangepicker({
+            format: 'DD/MM/YYYY'
+        });
+
+
+        $('input[name="reservation"]').val(TodayDateRange);
+
+        $("input").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnsearch").click();
+            }
+        });
+
+        $("select").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnsearch").click();
+            }
+        });
+
+        $.fn.dataTable.ext.errMode = 'throw';
+
+        $('#myTable').dataTable({
+
+            dom: 'lBfrtip',
+            responsive: !0,
+            buttons: [
+                 {
+                     text: '<i class="fa fa-file-excel-o"></i>' + '&nbsp;' + 'Export Excel',
+                     className: 'btn btn-primary',
+                     extend: 'excel',
+                     title: 'Bills List',
+                     exportOptions: {
+                         columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                     }
+                 },
+                 {
+                     text: '<i class="fa fa-file-pdf-o"></i>' + '&nbsp;' + 'Export Pdf',
+                     className: 'btn btn-primary',
+                     extend: 'pdf',
+                     title: 'Bills List',
+                     exportOptions: {
+                         columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                     },
+                     //extend: 'pdfHtml5',
+                     orientation: 'landscape',
+                     pageSize: 'LEGAL'
+                 }
+            ],
+            "deferRender": true,
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "iDisplayLength": @System.Configuration.ConfigurationManager.AppSettings["WebGridPageSize"],
+            "sAjaxSource": "@Url.Action("QueryBillList", "Reports")",
+            "fnServerParams": function (aoData) {
+                aoData.push(
+                { "name": "daterange", "value": $('#reservation').val() },
+                { "name": "CompanyCode", "value": $('#CompanyCode').val() },
+                { "name": "BrandCode", "value": $('#BrandCode').val() },
+                { "name": "ModelNo", "value": $('#ModelNo').val() },
+                { "name": "StatusCode", "value": $('#StatusCode').val() },
+                { "name": "CreatedBy", "value": $('#CreatedBy').val() });
+            },
+            "bProcessing": true,
+            "aoColumns": [
+                {
+                    "sWidth": "75px",
+                    "render": function (data, type, row) {
+                        return "<a class='btn btn-primary btn-xs' href='../Billing/EditBill?ServiceID=" + row[0] + "'>Edit</a>"
+                            + " | " + "<button type='button' id='btnview' onclick='ViewClick(" + '"' + row[0] + '"' + ");' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#myModal'>View</button>";
+                    }
+                },
+                { "sWidth": "50px" },
+                { "sWidth": "150px" },
+                { "sWidth": "150px" },
+                { "sWidth": "100px" },
+                { "sWidth": "100px" },
+                { "sWidth": "100px" },
+                { "sWidth": "200px" },
+                {
+                    "sWidth": "100px",
+                    "render": function (data, type, row) {
+                        if (data == 'New')
+                            return "<button type='button' class='btn btn-danger btn-xs' >" + data + "</button>";
+
+                        if (data == 'Ready')
+                            return "<button type='button' class='btn btn-success btn-xs' >" + data + "</button>";
+
+                        if (data == 'Delivered')
+                            return "<button type='button' class='btn btn-primary btn-xs' >" + data + "</button>";
+
+                        if (data == 'Return')
+                            return "<button type='button' class='btn btn-warning btn-xs' >" + data + "</button>";
+
+                    }
+                },
+                { "sWidth": "100px" },
+                { "sWidth": "100px" }
+
+            ],
+            "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                        i : 0;
+                };
+
+                // Total over all pages
+                total1 = api
+                    .column( 9 )
+                    .data()
+                    .reduce( function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0 );
+
+                // Update footer
+                $( api.column( 9 ).footer() ).html(
+                    'S$ '+ total1.toFixed(2)
+                );
+
+
+            }
+
+        });
+
+
+    });
+
+    function TodayDateRange() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+        var today = dd+'/'+mm+'/'+yyyy;
+        return today + ' | ' + today;
+    }
+
+    function IsStringEmpty(str) {
+        if (str && str != '')
+            return false;
+        else
+            return true;
+    }
+
+    function IsNumericEmpty(str) {
+        if (str && str != 0.00)
+            return false;
+        else
+            return true;
+    }
+
+    function returndate()
+    {
+        var _date = '';
+        var str = $('#reservation').val();
+        if(!IsStringEmpty(str)){
+            var startdate = str.split("|")[0];
+            var enddate = str.split("|")[1];
+            if($.trim(startdate) === $.trim(enddate)){
+                _date = str.split("|")[0];
+            }
+            else{
+                _date = str.replace("|", " TO ");
+            }
+        }
+        return _date;
+    }
+
+    function GetInfo() {
+        $('#myTable').DataTable().ajax.reload();
+    }
+
+     function ViewClick(trxnid) {
+
+        $.ajax({
+            url: '@Url.Content("~/Billing/GetBillDetails")',
+            type: 'POST',
+            data: JSON.stringify({ ServiceID: trxnid }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (result) {
+                if (result.success === true) {
+                    var model = result.response;
+                    $('#myModal').find('#ReceiptNoModal').val(model.ReceiptNo);
+                    $('#myModal').find('#ServiceDate').val(model.ServiceDate);
+                    $('#myModal').find('#CustomerName').val(model.CustomerName);
+                    $('#myModal').find('#ContactNo').val(model.ContactNo);
+                    $('#myModal').find('#BrandName').val(model.BrandName);
+                    $('#myModal').find('#ModelDesc').val(model.ModelNo);
+                    $('#myModal').find('#ColorName').val(model.ColorName);
+
+                    $('#myModal').find('#IMEINo').val(model.IMEINo);
+                    $('#myModal').find('#NatureFault').val(model.NatureFault);
+                    $('#myModal').find('#StatusName').val(model.StatusName);
+                    $('#myModal').find('#PasswordType').val(model.PasswordType);
+                    $('#myModal').find('#Password').val(model.Password);
+
+                    $('#myModal').find('#NetAmount').val(model.NetAmount);
+                    $('#myModal').find('#TechRemark').val(model.TechRemark);
+
+                }
+                if (result.success === false) {
+
+                }
+            }
+        });
+    }
+
+</script>
+
+
+

@@ -1,0 +1,28 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <li class="dropdown">
+        <!-- Menu Toggle Button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            @*<p><b>Mobile</b>PRO</p>*@
+            <span class="hidden-xs">Hi @User.Identity.Name</span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="@Url.Action("Manage", "Account")">Change password</a></li>
+            <li class="divider"></li>
+            <li>
+                <div class="text-center">
+                    @using (Html.BeginForm("Logoff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Sign out</a>
+                    }
+                </div>
+            </li>
+        </ul>
+    </li>   
+}
+else
+{
+    
+}
+

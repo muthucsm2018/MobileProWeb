@@ -1,0 +1,275 @@
+﻿@using MobilePro.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Receipt</title>
+    <style>
+        .invoice-box {
+            max-width: 600px;
+            margin: auto;
+            padding: 2px;
+            font-size: 12px;
+            line-height: 15px;
+            font-family: "Dejavu Sans";
+            color: #555;
+        }
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+        .invoice-box table td {
+            padding: 2px 5px 2px 5px;
+            vertical-align: middle;
+        }
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+        .invoice-box table tr.top table td {
+            padding-bottom: 10px;
+        }
+        .invoice-box table tr.top table td.title {
+            font-size: 15px;
+            line-height: 15px;
+            color: #333;
+        }
+        .logo-center {
+            text-align: center;
+            font-size: 20px;
+            font-family: verdana;
+        }
+        .invoice-box table tr.information table td {
+            padding-bottom: 1px;
+        }
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .invoice-box table tr.details td {
+            padding-bottom: 2px;
+        }
+        .invoice-box table tr.item td {
+            padding-bottom: 2px;
+            border-bottom: 2px dashed #000;
+        }
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px dashed #000;
+            font-weight: bold;
+        }
+
+       .myButton {
+           background-color:#5edfff;
+           color: #eeeeee;
+           border: 10px solid #0088cc;
+           border-radius:15px;
+           padding:10px;
+        }
+        .myButton:hover {background-color:blue;}
+
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://www.jqueryscript.net/demo/jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print/jQuery.print.js"></script>
+
+</head>
+<body>
+    <div class="invoice-box" id="divprint" name="divprint">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td class="title logo-center">
+                                <b>OHMS IT SOLUTIONS PTE LTD</b>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                @{
+                    if (WebSecurity.CurrentUserId == 12)
+                    {
+                        <td colspan="3">
+                            No.10 KERBAU ROAD, SINGAPORE 219149<br>
+                            HP: +65 93504495<br>
+                            Tel: +65 86613870
+                        </td>
+                    }
+                    else if (WebSecurity.CurrentUserId == 11)
+                    {
+                        <td colspan="3">
+                            No.17 VEERASAMY ROAD, SINGAPORE 207325<br>
+                            HP: +65 91200646
+
+                        </td>
+                    }
+                    else if (WebSecurity.CurrentUserId == 13)
+                    {
+                        <td colspan="3">
+                            No.44 TOH GUAN ROAD EAST, SINGAPORE 608584<br>
+                            HP: +65 89149149<br />
+                            Tel: +65 83083555
+                        </td>
+                    }
+                    else if (WebSecurity.CurrentUserId == 13)
+                    {
+                        <td colspan="3">
+                            No.32 TUAS VIEW SQUARE, SINGAPORE 637778<br>
+                            HP: +65 85108407<br />
+                            Tel: +65 94999415
+                        </td>
+                    }
+                    else
+                    {
+                        <td colspan="3">
+                            No.10 KERBAU ROAD, SINGAPORE 219149<br>
+                            HP: +65 90893175<br>
+                            Tel: +65 6291 1731
+                        </td>
+                    }
+                }
+            </tr>
+
+            <tr class="heading">
+                <td colspan="2" style="text-align:left">
+                    SERVICE
+                </td>
+
+                <td style="text-align:right">@ViewBag.ReceiptNo</td>
+            </tr>
+
+            <tr class="details">
+                <td colspan="3" align="center">
+                    @ViewBag.ApplicationDate
+                </td>
+            </tr>
+
+            <tr class="details">
+                <td>
+                    Name:
+                </td>
+
+                <td colspan="2" style="font-weight:bold">
+                    @ViewBag.ApplicantName
+                </td>
+            </tr>
+            <tr class="details">
+                <td>
+                    Contact No:
+                </td>
+
+                <td colspan="2">
+                    @ViewBag.ContactNo
+                </td>
+            </tr>
+
+
+            <tr class="details">
+                <td>
+                    Model:
+                </td>
+
+                <td colspan="2" style="font-weight:bold">
+                    @ViewBag.BrandModel
+                </td>
+            </tr>
+            <tr class="details">
+                <td>
+                    Fault:
+                </td>
+
+                <td colspan="2" style="font-weight:bold">
+                    @ViewBag.NatureFault
+                </td>
+            </tr>
+
+
+            <tr class="bordered details item">
+                <td>
+                    <span></span>
+                </td>
+
+                <td colspan="2">
+                    <span></span>
+                </td>
+            </tr>
+
+            <tr class="bordered details item">
+                <td>
+                    Charge:
+                </td>
+
+                <td colspan="2" style="font-weight:bold">
+                    @ViewBag.Amount.ToString("c")
+                </td>
+            </tr>
+
+            <tr class="details">
+                <td colspan="3" align="center" style="font-weight:bold">
+                    Original Receipt is required for collection</br>              
+                </td>
+            </tr>
+            <tr class="details">
+                <td colspan="3" align="center" style="font-weight:bold">
+                    Once Collected NO Warranty NO Guarantee</br>
+                    </br>
+                    Thank you
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="googlink">
+        <button type="button" tabindex="1" id="printpagebutton" class="myButton" onclick="myFunction()">Print</button>
+
+        @if (Shared.ToString(ViewBag.Backto) == "Yes")
+        {
+            <button type="button" tabindex="2" id="btnback" onclick="cancelclick();" class="myButton">Back to Service</button>
+        }
+        else
+        {
+            <button type="button" id="btnback" style="display:none " class="btn btn-warning btn-xs"></button>
+        }
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var tabindex = 1;
+            $('[tabindex=' + tabindex + ']').focus();
+            myFunction();
+        });
+
+        function myFunction() {
+            //Get the print button and put it into a variable
+            var printButton = document.getElementById("printpagebutton");
+            //Set the print button visibility to 'hidden'
+            printButton.style.visibility = 'hidden';
+            var printButton1 = document.getElementById("btnback");
+            //Set the print button visibility to 'hidden'
+            printButton1.style.visibility = 'hidden';
+            //Print the page content
+            $('#divprint').print();
+            //Set the print button to 'visible' again
+            //[Delete this line if you want it to stay hidden after printing]
+            printButton.style.visibility = 'visible';
+            printButton1.style.visibility = 'visible';
+        }
+
+        function cancelclick() {
+            document.location = '@Url.Action("ListBills", "Billing")';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,327 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}
+</style>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" >
+        <h1>
+            Over All Report
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Over All Report</li>
+        </ol>
+    </section>
+    <section class="content">@Html.Hidden("returnUrl", this.Request.RawUrl)
+        <!-- /.row -->
+        <div class="row" >
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-wrench"></i>
+                                </button>
+                            </div>
+                            <button type="button" style="font-style:italic" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <section class="content">
+                        <div class="box box-default">
+                            <p>Note: Displaying Today Records, Please Search for specific Date</p>
+                            <div class="box-body">
+                                <div class="row">                                 
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Service Date</label>
+                                            <div>
+                                                <input type="text" name="ServiceDate" tabindex="1" class="form-control datepicker" id="ServiceDate">
+                                            </div>
+                                        </div>
+                                    </div>                                   
+
+                                    <div class="col-sm-2">
+                                        <div class="btn-adj">
+                                            <button type="button" tabindex="2" id="btnsearch" onclick="GetInfo();" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div> <!--/.box-->
+                        <div class="box box-default">
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class=" box-body table-responsive no-padding">
+
+                                            <table id="myTable" class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </div>
+
+                        </div> <!--/.box-->
+                    </section> <!-- /.content-->
+                    <!-- /.row -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</div><!-- /.content-wrapper -->
+
+
+<!-- page script -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $('#ServiceDate').datepicker({
+            format: 'dd/mm/yyyy',
+            todayHighlight: true
+        });
+
+        $.fn.dataTable.ext.errMode = 'throw';
+        
+        $('input[name="ServiceDate"]').val(TodayDateRange);
+
+        $('#myTable').dataTable({
+
+            dom: 'lBfrtip',
+            responsive: !0,
+            buttons: [
+                    {
+                        text: '<i class="fa fa-file-excel-o"></i>' + '&nbsp;' + 'Export Excel',
+                        className: 'btn btn-primary',
+                        extend: 'excel',
+                        title: 'OverAll Report',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    },
+                    { 
+                        text: '<i class="fa fa-file-excel-o"></i>' + '&nbsp;' + 'Export Pdf',
+                        className: 'btn btn-primary',
+                        title: 'OverAll Report', //$(".datepicker[name=ServiceDate]").val(),
+                        extend: 'pdf',
+                        footer : true,
+                        header : true,
+                        orientation:'portrait',
+                        customize: function (doc) {
+                            var lastColX=null;
+                            var lastColY=null;
+                            var bod = []; // this will become our new body (an array of arrays(lines))
+                            //Loop over all lines in the table
+                            doc.content[1].table.body.forEach(function(line, i){
+                                //Group based on first column (ignore empty cells)
+                                if(lastColX != line[0].text && line[0].text != ''){
+                                    //Add line with group header
+                                    bod.push([{text:line[0].text, style:'tableHeader'},'','','','']);
+                                    //Update last
+                                    lastColX=line[0].text;
+                                }
+                                ////Group based on second column (ignore empty cells) with different styling
+                                //if(lastColY != line[1].text && line[1].text != ''){
+                                //    //Add line with group header
+                                //    bod.push(['',{text:line[1].text, style:'subheader'},'','','']);
+                                //    //Update last
+                                //    lastColY=line[1].text;
+                                //}
+                                //Add line with data except grouped data
+                                if( i < doc.content[1].table.body.length-1){
+                                    bod.push(['',{text:line[1].text, style:'defaultStyle'},{text:line[2].text, style:'defaultStyle'},
+                                                    {text:line[3].text, style:'defaultStyle'},
+                                                    {text:line[4].text, style:'defaultStyle'}]);   
+                                }
+                                    //Make last line bold, blue and a bit larger
+                                else{
+                                    bod.push(['',{text:line[1].text, style:'lastLine'},{text:line[2].text, style:'lastLine'},
+                                                {text:line[3].text, style:'lastLine'},
+                                                {text:line[4].text, style:'lastLine'}]);
+                                }
+                 
+                            });
+                            //Overwrite the old table body with the new one.
+                            doc.content[1].table.headerRows = 1;
+                            doc.content[1].table.widths = [100, 100, 100, 100, 100];
+                            doc.content[1].table.body = bod;
+                            doc.content[1].layout = 'lightHorizontalLines';
+             
+                            doc.styles = {
+                                subheader: {
+                                    fontSize: 8,
+                                    bold: true,
+                                    color: 'red'
+                                },
+                                tableHeader: {
+                                    bold: true,
+                                    fontSize: 8.5,
+                                    color: 'black'
+                                },
+                                lastLine: {
+                                    bold: true,
+                                    fontSize: 9,
+                                    color: 'blue'
+                                },
+                                defaultStyle: {
+                                    fontSize: 8,
+                                    color: 'black'
+                                }
+                            }
+                        }
+                    }
+            ],
+            "paging": false,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false,
+            //"iDisplayLength": @System.Configuration.ConfigurationManager.AppSettings["WebGridPageSize"],
+            "sAjaxSource": "@Url.Action("QueryTodayList", "Home")",
+            "fnServerParams": function (aoData) {
+                aoData.push(
+                { "name": "CreatedDate", "value": $('#ServiceDate').val() } );
+            },
+            "bProcessing": true,
+            "aoColumns": [
+                { "sWidth": "150px" },
+                { "sWidth": "150px" },
+                { "sWidth": "150px" },
+                { "sWidth": "150px" },
+                { "sWidth": "150px" }                
+            ],
+            "columnDefs": [
+           { "visible": false, "targets": 0 }
+            ],
+            "drawCallback": function ( settings ) {
+                var api = this.api();
+                var rows = api.rows( {page:'current'} ).nodes();
+                var last=null;
+
+                api.column(0, {page:'current'} ).data().each( function ( group, i ) {
+                    if ( last !== group ) {
+                        $(rows).eq( i ).before(
+                            '<tr class="group"><td colspan="5">'+group+'</td></tr>'
+                        );
+
+                        last = group;
+                    }
+                } );
+            },            
+            "footerCallback": function ( row, data, start, end, display ) {
+                var api = this.api(), data;
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function ( i ) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '')*1 :
+                        typeof i === 'number' ?
+                        i : 0;
+                };
+               
+                // Update footer
+                $( api.column( 0 ).footer() ).html(
+                    returndate() 
+                );
+
+            }
+
+        });
+    });
+
+
+
+    function TodayDateRange() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+        var today = dd+'/'+mm+'/'+yyyy;
+        return today;
+    }
+
+    function returndate()
+    {
+        var _date = '';
+        var str = $('#ServiceDate').val();
+        if(!IsStringEmpty(str)){        
+            _date = str;
+        }
+        return _date;
+    }
+
+    function formatAMPM() {
+        var d = new Date(),
+        minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+        hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+        ampm = d.getHours() >= 12 ? 'pm' : 'am',
+        months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        return months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
+    }
+
+    function GetInfo() {
+        $('#ParmType').val('2');
+        $('#myTable').DataTable().ajax.reload();
+    }
+
+    function IsStringEmpty(str) {
+        if (str && str != '')
+            return false;
+        else
+            return true;
+    }
+
+
+</script>
+
+
+

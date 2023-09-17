@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileProModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Brands">
+    <Key>
+      <PropertyRef Name="BrandCode" />
+    </Key>
+    <Property Name="BrandCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BrandDesc" Type="nvarchar" MaxLength="256" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="ColorCode" />
+    </Key>
+    <Property Name="ColorCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="security_Pages">
+    <Key>
+      <PropertyRef Name="PageID" />
+    </Key>
+    <Property Name="PageID" Type="int" Nullable="false" />
+    <Property Name="PageParentID" Type="int" />
+    <Property Name="PageName" Type="nvarchar" MaxLength="80" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="PageURL" Type="nvarchar" MaxLength="256" />
+    <Property Name="PageOrdinal" Type="int" />
+    <Property Name="IsMenu" Type="smallint" />
+  </EntityType>
+  <EntityType Name="security_RolePages">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="PageID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="PageID" Type="int" Nullable="false" />
+    <Property Name="IsHomePage" Type="smallint" />
+  </EntityType>
+  <EntityType Name="security_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="security_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceBill">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NatureFault" Type="nvarchar" MaxLength="100" />
+    <Property Name="StatusCode" Type="int" />
+    <Property Name="TechRemark" Type="nvarchar(max)" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="20" />
+    <Property Name="PasswordType" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="ServiceDate" Type="datetime" />
+    <Property Name="BrandCode" Type="int" />
+    <Property Name="ColorCode" Type="int" />
+    <Property Name="TechnicianName" Type="nvarchar" MaxLength="100" />
+    <Property Name="IMEINo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NetAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ServiceBill_VeeraSamy">
+    <Key>
+      <PropertyRef Name="ReceiptNo" />
+    </Key>
+    <Property Name="ReceiptNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NatureFault" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProblemDesc" Type="nvarchar" MaxLength="256" />
+    <Property Name="StatusCode" Type="int" />
+    <Property Name="TechRemark" Type="nvarchar(max)" />
+    <Property Name="AdvanceAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="20" />
+    <Property Name="PasswordType" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="ServiceDate" Type="datetime" />
+    <Property Name="NRICNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrandCode" Type="int" />
+    <Property Name="ColorCode" Type="int" />
+    <Property Name="TechnicianName" Type="nvarchar" MaxLength="100" />
+    <Property Name="IMEINo" Type="nvarchar" MaxLength="50" />
+    <Property Name="OutSourceCode" Type="int" />
+    <Property Name="GSTAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="EstimateAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NetAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="ReadyBy" Type="int" />
+    <Property Name="ReadyDate" Type="datetime" />
+    <Property Name="ActualCost" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusCode" />
+    </Key>
+    <Property Name="StatusCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MobilePro.dbo.webpages_Membership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFailuresSinceLastSuccess" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="PasswordSalt" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <Function Name="sp_frm_add_upd_Bill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServiceID" Type="bigint" Mode="In" />
+    <Parameter Name="ReceiptNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModelNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="NatureFault" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProblemDesc" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusCode" Type="int" Mode="In" />
+    <Parameter Name="TechRemark" Type="nvarchar" Mode="In" />
+    <Parameter Name="PasswordType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="ServiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="BrandCode" Type="int" Mode="In" />
+    <Parameter Name="ColorCode" Type="int" Mode="In" />
+    <Parameter Name="IMEINo" Type="nvarchar" Mode="In" />
+    <Parameter Name="NetAmount" Type="decimal" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_add_upd_Brand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandCode" Type="int" Mode="In" />
+    <Parameter Name="BrandName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BrandDesc" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_add_upd_Color" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ColorCode" Type="int" Mode="In" />
+    <Parameter Name="ColorName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_Dashboard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Bill_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Bills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServiceID" Type="bigint" Mode="In" />
+    <Parameter Name="ReceiptNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="BrandCode" Type="int" Mode="In" />
+    <Parameter Name="ModelNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ServiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="StatusCode" Type="int" Mode="In" />
+    <Parameter Name="OutSourceCode" Type="int" Mode="In" />
+    <Parameter Name="CustomerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ParmType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Bills_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="ReceiptNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="BrandCode" Type="int" Mode="In" />
+    <Parameter Name="ModelNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="StatusCode" Type="int" Mode="In" />
+    <Parameter Name="TransactionFrom" Type="datetime" Mode="In" />
+    <Parameter Name="TransactionTo" Type="datetime" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Brands" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BrandName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Colors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ColorName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_parm_Brands" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_parm_Colors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Parm_Status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Parm_Users" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Today_Service_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_get_Today_Service_Items" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_Security_get_parm_Users" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_Security_get_UserHomePage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_Security_get_Users" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="smallint" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="PageName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_frm_Security_TreeViewMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="Menu" Type="varchar" Mode="In" />
+    <Parameter Name="ParentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Remove5000Records" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="MobileProModelStoreContainer">
+    <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="security_Pages" EntityType="Self.security_Pages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="security_RolePages" EntityType="Self.security_RolePages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="security_Roles" EntityType="Self.security_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="security_UsersInRoles" EntityType="Self.security_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceBill" EntityType="Self.ServiceBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceBill_VeeraSamy" EntityType="Self.ServiceBill_VeeraSamy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [webpages_Membership].[UserId] AS [UserId], 
+    [webpages_Membership].[CreateDate] AS [CreateDate], 
+    [webpages_Membership].[ConfirmationToken] AS [ConfirmationToken], 
+    [webpages_Membership].[IsConfirmed] AS [IsConfirmed], 
+    [webpages_Membership].[LastPasswordFailureDate] AS [LastPasswordFailureDate], 
+    [webpages_Membership].[PasswordFailuresSinceLastSuccess] AS [PasswordFailuresSinceLastSuccess], 
+    [webpages_Membership].[Password] AS [Password], 
+    [webpages_Membership].[PasswordChangedDate] AS [PasswordChangedDate], 
+    [webpages_Membership].[PasswordSalt] AS [PasswordSalt], 
+    [webpages_Membership].[PasswordVerificationToken] AS [PasswordVerificationToken], 
+    [webpages_Membership].[PasswordVerificationTokenExpirationDate] AS [PasswordVerificationTokenExpirationDate]
+    FROM [dbo].[webpages_Membership] AS [webpages_Membership]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

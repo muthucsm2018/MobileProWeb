@@ -1,0 +1,372 @@
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\MobilePro.dll.config
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\MobilePro.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\MobilePro.pdb
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Antlr3.Runtime.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.Core.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\EntityFramework.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\EntityFramework.SqlServer.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Newtonsoft.Json.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\RazorEngine.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\RestSharp.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Net.Http.Extensions.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Net.Http.Primitives.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Helpers.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Mvc.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Optimization.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Razor.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.WebPages.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.WebPages.Razor.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\WebGrease.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\WebMatrix.Data.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\WebMatrix.WebData.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Mono.Math.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.Core.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\RazorEngine.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\RestSharp.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Net.Http.Extensions.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Net.Http.Primitives.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Helpers.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Mvc.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Optimization.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.Razor.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.WebPages.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\System.Web.WebPages.Razor.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Newtonsoft.Json.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Antlr3.Runtime.pdb
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\WebMatrix.Data.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\WebMatrix.WebData.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\EntityFramework.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\EntityFramework.SqlServer.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Mono.Math.xml
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\obj\Release\MobilePro.csproj.App.config
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\obj\Release\MobilePro.csprojResolveAssemblyReference.cache
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\obj\Release\MobilePro.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\obj\Release\MobilePro.pdb
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\obj\Release\RdlCompile.cache
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\obj\Release\RdlCompile.compiled
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Reports\Receipt.rdlc
+C:\Users\muthu\Documents\Visual Studio 2013\Projects\MobilePro\MobilePro\bin\Reports\Barcode.rdlc
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Reports\Barcode.rdlc
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Reports\Receipt.rdlc
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\MobilePro.dll.config
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\MobilePro.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\MobilePro.pdb
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Antlr3.Runtime.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.Core.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\EntityFramework.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\EntityFramework.SqlServer.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.SqlServer.Types.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Newtonsoft.Json.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\RazorEngine.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\RestSharp.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.Extensions.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.Formatting.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.Primitives.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Helpers.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Http.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Http.WebHost.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Mvc.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Optimization.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Razor.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.WebPages.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.WebPages.Razor.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\WebGrease.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\WebMatrix.Data.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\WebMatrix.WebData.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Mono.Math.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.Core.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Newtonsoft.Json.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\RazorEngine.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\RestSharp.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.Extensions.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.Formatting.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.Primitives.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Http.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Http.WebHost.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Helpers.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Mvc.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Optimization.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.Razor.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.WebPages.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Web.WebPages.Razor.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Antlr3.Runtime.pdb
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\WebMatrix.Data.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\WebMatrix.WebData.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\EntityFramework.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\EntityFramework.SqlServer.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Mono.Math.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.App.config
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.CoreCompileInputs.cache
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.CopyComplete
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\obj\Release\MobilePro.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\obj\Release\MobilePro.pdb
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\obj\Release\MobilePro.csprojAssemblyReference.cache
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\jose-jwt.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Win32.Primitives.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.AppContext.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Collections.Immutable.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Console.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Globalization.Calendars.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.IO.Compression.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.IO.Compression.ZipFile.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.IO.FileSystem.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Http.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Net.Sockets.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Xml.ReaderWriter.dll
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Collections.Immutable.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\muthukumar_m\Documents\My Web Sites\MobileProWeb\MobilePro\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Reports\Barcode.rdlc
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Reports\Receipt.rdlc
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\MobilePro.dll.config
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\MobilePro.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\MobilePro.pdb
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Antlr3.Runtime.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.Core.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\EntityFramework.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\EntityFramework.SqlServer.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\jose-jwt.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.SqlServer.Types.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Win32.Primitives.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Newtonsoft.Json.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\RazorEngine.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\RestSharp.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.AppContext.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Collections.Immutable.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Console.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Globalization.Calendars.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.IO.Compression.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.IO.Compression.ZipFile.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.IO.FileSystem.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.Extensions.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.Formatting.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.Primitives.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Sockets.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Helpers.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Http.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Http.WebHost.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Mvc.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Optimization.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Razor.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.WebPages.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.WebPages.Razor.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Xml.ReaderWriter.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\WebGrease.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\WebMatrix.Data.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\WebMatrix.WebData.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Mono.Math.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.Core.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Newtonsoft.Json.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\RazorEngine.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\RestSharp.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Collections.Immutable.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.Extensions.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.Formatting.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Net.Http.Primitives.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Http.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Http.WebHost.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.WebPages.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Helpers.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Mvc.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Optimization.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.Razor.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\System.Web.WebPages.Razor.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Antlr3.Runtime.pdb
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\WebMatrix.Data.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\WebMatrix.WebData.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\EntityFramework.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\EntityFramework.SqlServer.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Mono.Math.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.App.config
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\obj\Release\MobilePro.csprojResolveAssemblyReference.cache
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\obj\Release\MobilePro.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\obj\Release\MobilePro.pdb
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.PointOfService.ControlBase.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.PointOfService.dll
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.PointOfService.xml
+C:\Users\P0105443\Documents\MobileProWeb\MobilePro\bin\Microsoft.PointOfService.ControlBase.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\MobilePro.dll.config
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\MobilePro.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\MobilePro.pdb
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Antlr3.Runtime.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.Core.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\EntityFramework.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\EntityFramework.SqlServer.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Newtonsoft.Json.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\RazorEngine.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\RestSharp.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Net.Http.Extensions.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Net.Http.Formatting.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Net.Http.Primitives.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Helpers.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Http.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Http.WebHost.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Mvc.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Optimization.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Razor.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.WebPages.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.WebPages.Razor.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\WebGrease.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\WebMatrix.Data.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\WebMatrix.WebData.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Mono.Math.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.Core.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\EntityFramework.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\EntityFramework.SqlServer.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Newtonsoft.Json.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\RazorEngine.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\RestSharp.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Net.Http.Extensions.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Net.Http.Formatting.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Net.Http.Primitives.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Http.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Http.WebHost.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.WebPages.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Helpers.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Mvc.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Optimization.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.Razor.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\System.Web.WebPages.Razor.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Antlr3.Runtime.pdb
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\WebMatrix.Data.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\WebMatrix.WebData.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Mono.Math.xml
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.AssemblyReference.cache
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.CoreCompileInputs.cache
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\obj\Release\MobilePro.csproj.CopyComplete
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\obj\Release\MobilePro.dll
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\obj\Release\MobilePro.pdb
+C:\Users\P0105443\Downloads\P0105443\repos\MobileProWeb\MobilePro\bin\Microsoft.Web.WebPages.OAuth.dll

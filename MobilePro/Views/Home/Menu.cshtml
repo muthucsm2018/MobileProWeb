@@ -1,0 +1,54 @@
+﻿@using MobilePro.Models
+@model IEnumerable<ParentMenu>
+
+
+<ul class="nav navbar-nav">
+        <li class="active">
+            <a href="@Url.Action("Index", "Home")">
+                Dashboard
+            </a>
+        </li>
+    
+    
+    @{ var teamList = Model.ToList(); }
+
+    @foreach (var item in teamList)
+    {      
+        <li class="dropdown">
+
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">@Html.Raw(item.Text)<span class="caret"></span></a>
+
+            @if (item.childs != null)
+            {
+                <ul class="dropdown-menu" role="menu">
+                    @for (var i = 0; i < item.childs.Count; i++)
+                    {
+                        var s = item.childs[i].PageTitle.ToString().Replace("<BR/>", "\r\n");
+                        <li ><a href="@Url.Content(item.childs[i].NavigateUrl)">@s.Replace("&nbsp;", " ")</a></li>
+                        <li class="divider"></li>
+                    }
+                </ul>
+
+            }
+        </li>       
+    }       
+   
+    
+    @*@if (Shared.ToString(ViewBag.UserAuth) == "true")
+    {
+        <li><a class="text-center" onclick='SalesClick();'><span>Today Sales</span></a></li>
+    }*@
+
+</ul>
+<script type="text/javascript">
+    function SalesClick() {
+        var url = '@Url.Content("~/Sales/TodaySales")';
+        window.open(url, window, 'dialogHeight:750px;dialogWidth:400px;edge:Raised;center:Yes;help:No;resizable:No;status:No;scroll:Yes;');
+    }
+    
+</script> 
+
+
+
+
+ 
